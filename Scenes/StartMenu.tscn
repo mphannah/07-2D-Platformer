@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/StartMenu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/PressStart2P-vaV7.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/new_theme.theme" type="Theme" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 0
+custom_constants/margin_top = 50
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 116.0
+margin_top = 50.0
+margin_right = 524.0
+margin_bottom = 340.0
+size_flags_horizontal = 4
+custom_constants/separation = 75
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer2"]
+margin_right = 408.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.25098, 0.25098, 0.25098, 1 )
+text = "A Large Adventure"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2"]
+margin_left = 150.0
+margin_top = 99.0
+margin_right = 258.0
+margin_bottom = 216.0
+size_flags_horizontal = 4
+theme = ExtResource( 3 )
+custom_constants/separation = 15
+
+[node name="Continue" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+margin_right = 108.0
+margin_bottom = 18.0
+text = "Continue"
+
+[node name="NewGame" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+margin_top = 33.0
+margin_right = 108.0
+margin_bottom = 51.0
+text = "New Game"
+
+[node name="Controls" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+margin_top = 66.0
+margin_right = 108.0
+margin_bottom = 84.0
+text = "Controls"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+margin_top = 99.0
+margin_right = 108.0
+margin_bottom = 117.0
+text = "Quit"
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/Controls" to="." method="_on_Controls_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
